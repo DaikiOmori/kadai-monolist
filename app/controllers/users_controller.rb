@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @items = @user.items.uniq
+    @count_want = @user.want_items.count  
   end
 
   def new
@@ -11,20 +13,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
-    if @user.save
-      flash[:success] = 'ユーザーを登録しました'
-  　　redirect_to @user
-  　else
-  　   false[:danger] = 'ユーザーの登録に失敗しました'
-  　 　render:new
-  　end
-　end
 
+    if @user.save
+      flash[:success] = 'ユーザを登録しました。'
+      redirect_to @user
+    else
+      flash.now[:danger] = 'ユーザの登録に失敗しました。'
+      render :new
+    end
+  end
+  
 private
   
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-  
 end
