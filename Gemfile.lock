@@ -87,6 +87,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    pg (0.21.0)
     puma (3.12.0)
     rack (2.0.5)
     rack-test (0.6.3)
@@ -173,6 +174,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
+  pg (= 0.21.0)
   puma (~> 3.0)
   rails (~> 5.0.6)
   rakuten_web_service (= 1.5.0)
