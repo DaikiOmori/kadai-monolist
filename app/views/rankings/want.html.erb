@@ -12,6 +12,7 @@
               <p class="item-title"><%= link_to item.name, item %></p>
               <div class="buttons text-center">
                 <% if logged_in? %>
+                  <%= render 'ownerships/have_button', item: item %>
                   <%= render 'ownerships/want_button', item: item %>
                 <% end %>
               </div>
